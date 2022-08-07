@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "key": "aws",
+    "name": "Amazon Web Services (AWS)"
+  },
+  {
+    "id": 2,
+    "key": "gcp",
+    "name": "Google Cloud Platform (GCP)"
+  }
+]

@@ -1,0 +1,1 @@
+export { fetchHttpClientIocModule } from './fetchHttpClientIocModule'
