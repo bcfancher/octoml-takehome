@@ -1,0 +1,56 @@
+*, html, body {
+  margin: 0;
+}
+
+body {
+  background-color: #e5e5e5 !important;
+  padding: 0;
+  font-family: arial, san-serif;
+}
+
+.page {
+  .sidebar {
+    position: fixed;
+    height: 100%;
+    width: 66px;
+    background-color: #fff;
+
+    &__heading {
+      text-indent: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 24px;
+      height: 29px;
+      background-image: url(./public/icons/octoml-logo.svg);
+      margin: 17px auto 83px auto;
+    }
+
+    .nav {
+      a {
+        display: block;
+        margin: 73px auto 0 auto;
+        text-indent: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 20px;
+        height: 20px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        cursor: pointer;
+      }
+
+      &__home {
+        background-image: url(./public/icons/home-logo.svg)
+      }
+
+      &__analytics {
+        background-image: url(./public/icons/analytics-logo.svg)
+      }
+    }
+  }
+
+  .inner {
+    padding: 80px 100px;
+    // padding: 80px 200px;
+  }
+}

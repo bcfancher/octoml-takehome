@@ -33,7 +33,5 @@ beforeAll(() => {
 it('gets collated list of providers and instance types', async () => {
   const actual = await interactor.execute()
 
-  console.log({ actual: actual.map((provider) => provider.toJsonString()) })
-
   expect(actual).toMatchSnapshot()
 })
