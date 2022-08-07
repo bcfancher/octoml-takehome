@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "providerId": 2,
+    "key": "c2-standard-4",
+    "name": "c2-standard-4",
+    "numCpus": 4,
+    "ramGb": 16
+  },
+  {
+    "id": 2,
+    "providerId": 2,
+    "key": "c2-standard-8",
+    "name": "c2-standard-8",
+    "numCpus": 8,
+    "ramGb": 32
+  },
+  {
+    "id": 3,
+    "providerId": 2,
+    "key": "c2-standard-16",
+    "name": "c2-standard-16",
+    "numCpus": 16,
+    "ramGb": 64
+  },
+  {
+    "id": 4,
+    "providerId": 2,
+    "key": "c2-standard-30",
+    "name": "c2-standard-30",
+    "numCpus": 30,
+    "ramGb": 120
+  },
+  {
+    "id": 5,
+    "providerId": 2,
+    "key": "c2-standard-60",
+    "name": "c2-standard-60",
+    "numCpus": 60,
+    "ramGb": 240
+  },
+  {
+    "id": 6,
+    "providerId": 1,
+    "key": "m4.large",
+    "name": "m4.large",
+    "numCpus": 2,
+    "ramGb": 8
+  },
+  {
+    "id": 7,
+    "providerId": 1,
+    "key": "m4.xlarge",
+    "name": "m4.xlarge",
+    "numCpus": 4,
+    "ramGb": 16
+  },
+  {
+    "id": 8,
+    "providerId": 1,
+    "key": "m4.2xlarge",
+    "name": "m4.2xlarge",
+    "numCpus": 8,
+    "ramGb": 32
+  },
+  {
+    "id": 9,
+    "providerId": 1,
+    "key": "m4.4xlarge",
+    "name": "m4.4xlarge",
+    "numCpus": 16,
+    "ramGb": 64
+  },
+  {
+    "id": 10,
+    "providerId": 1,
+    "key": "m4.10xlarge",
+    "name": "m4.10xlarge",
+    "numCpus": 40,
+    "ramGb": 160
+  },
+  {
+    "id": 11,
+    "providerId": 1,
+    "key": "m4.16xlarge",
+    "name": "m4.16xlarge",
+    "numCpus": 64,
+    "ramGb": 256
+  }
+]
