@@ -1,58 +1,49 @@
 import React from 'react'
 
-export const OctomizeTargets = () => (
-  <section className='hardware'>
-    <div className='hardware__heading'>
-      <h4>Hardware Targets</h4>
-      <button>Add</button>
-    </div>
+import { OctomizeTarget } from '../types'
+import { OctomizeTargetsItem } from './OctomizeTargetsItem'
 
-    <div className='hardware__grid'>
-      <div className='header provider'>Provider</div>
-      <div className='header'>Instance</div>
-      <div className='header'>VCPU</div>
-      <div className='header'>Memory (gib)</div>
-      <div className='header'></div>
+type TargetProps = {
+  targets: OctomizeTarget[]
+  onAddTarget: () => void
+  onUpdateTarget: (updatedIdx: number, updatedTarget: OctomizeTarget) => void
+  onRemoveTarget: (removedIdx: number,) => void
+}
 
-      <div className='line'></div>
+export const OctomizeTargets = 
+({ targets, onAddTarget, onUpdateTarget, onRemoveTarget }: TargetProps) => {
 
-      <div>
-        <select>
-          <option>Select Provider</option>
-          <option>AWS</option>
-          <option>GCP</option>
-        </select>
+  return (
+    <section className='hardware'>
+      <div className='hardware__heading'>
+        <h4>Hardware Targets</h4>
+        <button onClick={onAddTarget}>Add</button>
       </div>
-      <div>
-        <select>
-          <option>Select Instance</option>
-          <option>c4.large</option>
-          <option>c4.xlarge</option>
-          <option>c6g.large</option>
-        </select>
-      </div>
-      <div>0</div>
-      <div>0</div>
-      <div className='remove'><div></div></div>
 
-      <div>
-        <select>
-          <option>Select Provider</option>
-          <option>AWS</option>
-          <option>GCP</option>
-        </select>
+      <div className='hardware__grid'>
+        <div className='header provider'>Provider</div>
+        <div className='header'>Instance</div>
+        <div className='header'>VCPU</div>
+        <div className='header'>Memory (gib)</div>
+        <div className='header'></div>
+
+        <div className='line'></div>
+
+        {targets.length > 0 ? targets.map((target, idx) => (
+          <OctomizeTargetsItem
+            idx={idx}
+            key={`${idx}-${target.providerId}-${target.instanceTypeId}`}
+            target={target}
+            onUpdateTarget={onUpdateTarget}
+            onRemoveTarget={onRemoveTarget}
+            showRemoveButton={targets.length > 1}
+          />
+        )) : (
+          <div className='no-records'>
+            click 'Add' button to add a target
+          </div>
+        )}
       </div>
-      <div>
-        <select>
-          <option>Select Instance</option>
-          <option>c4.large</option>
-          <option>c4.xlarge</option>
-          <option>c6g.large</option>
-        </select>
-      </div>
-      <div>0</div>
-      <div className='memory'>0</div>
-      <div className='remove'><div></div></div>
-    </div>
-  </section>
-)
+    </section>
+  )
+}

@@ -40,6 +40,9 @@ module.exports = {
     extensions: ['.ts', '.js', '.json', ".tsx"]
   },
   devServer: {
+    static: {
+      directory: path.join(__dirname, 'src/public'),
+    },
     port: 3000,
     open: true,
     hot: true

@@ -1,0 +1,1 @@
+export { restMswHandler } from './Rest'

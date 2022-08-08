@@ -40,7 +40,6 @@
     &__queue {
       border-radius: 8px;
       background-color: #fff;
-      padding: 30px 24px 32px 24px;
       box-shadow: 0px 2px 8px rgba(46, 50, 56, 0.04), 0px 8px 24px rgba(46, 50, 56, 0.08)
     }
 
@@ -48,6 +47,7 @@
       flex-basis: auto;
       margin-right: 16px;
       flex-grow: 10;
+      padding: 30px 24px 32px 24px;
 
       .option {
         display: flex;
@@ -120,6 +120,11 @@
             margin: 0 -24px 6px -24px;
           }
 
+          .no-records {
+            grid-column: 1 / span 5;
+            text-align: center;
+          }
+
           div {
             font-size: 14px;
           }
@@ -146,6 +151,7 @@
       flex-basis: auto;
       align-self: flex-start;
       flex-grow: 3;
+      padding: 24px;
 
       .heading {
         margin-bottom: 24px;

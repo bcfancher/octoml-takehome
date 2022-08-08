@@ -1,1 +1,1 @@
-export { Octomize } from './Octomize'
+export { OctomizeConnected as Octomize } from './OctomizeConnected'

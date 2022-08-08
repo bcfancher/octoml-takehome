@@ -1,7 +1,7 @@
 import { BaseEntity, CloudInstanceTypeEntity } from '.'
 
 class CloudProviderEntity extends BaseEntity {
-  private _id: string
+  private _id: number
   private _key: string
   private _name: string
   private _instanceTypes: CloudInstanceTypeEntity[]
@@ -18,7 +18,7 @@ class CloudProviderEntity extends BaseEntity {
     )
   }
 
-  get id(): string {
+  get id(): number {
     return this._id
   }
 
@@ -42,7 +42,7 @@ class CloudProviderEntity extends BaseEntity {
 
 namespace CloudProviderEntity {
   export interface jsonType {
-    id: string
+    id: number
     key: string
     name: string
     instanceTypes?: CloudInstanceTypeEntity.jsonType[]

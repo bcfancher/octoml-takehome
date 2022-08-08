@@ -8,6 +8,17 @@
     "dev": "webpack-dev-server",
     "test": "jest"
   },
+  "dependencies": {
+    "@tanstack/react-query": "^4.0.10",
+    "inversify": "^6.0.1",
+    "msw": "^0.44.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-query": "^4.0.0",
+    "react-router-dom": "6",
+    "reflect-metadata": "^0.1.13",
+    "ts-node": "^10.9.1"
+  },
   "devDependencies": {
     "@babel/core": "^7.18.10",
     "@babel/preset-env": "^7.18.10",
@@ -34,13 +45,7 @@
     "webpack-dev-server": "^4.9.3",
     "whatwg-fetch": "^3.6.2"
   },
-  "dependencies": {
-    "inversify": "^6.0.1",
-    "msw": "^0.44.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "6",
-    "reflect-metadata": "^0.1.13",
-    "ts-node": "^10.9.1"
+  "msw": {
+    "workerDirectory": "src/public"
   }
 }
