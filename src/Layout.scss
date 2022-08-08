@@ -3,9 +3,9 @@
 }
 
 body {
-  background-color: #e5e5e5 !important;
   padding: 0;
   font-family: arial, san-serif;
+  color: #555B62;
 }
 
 .page {
@@ -14,6 +14,7 @@ body {
     height: 100%;
     width: 66px;
     background-color: #fff;
+    box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
 
     &__heading {
       text-indent: 100%;
@@ -50,7 +51,9 @@ body {
   }
 
   .inner {
-    padding: 80px 100px;
-    // padding: 80px 200px;
+    background-color: #e5e5e5;
+    min-height: 100vh;
+    // padding: 80px 100px;
+    padding: 80px 10vw 80px 14vw;
   }
 }

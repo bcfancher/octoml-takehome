@@ -1,0 +1,195 @@
+.octomize {
+
+  h3,
+  h4 {
+    color: #7B818A;
+  }
+
+  button {
+    color: #fff;
+    background-color: #0180FF;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    padding: 8px 16px;
+  }
+
+  .model {
+    margin-bottom: 48px;
+
+    &__filename {
+      font-size: 36px;
+      font-weight: normal;
+    }
+
+    &__details {
+      font-size: 14px;
+    }
+  }
+
+  .launch {
+    display: flex;
+
+    &__heading {
+      font-size: 30px;
+      font-weight: normal;
+      margin-bottom: 30px;
+    }
+
+    &__options,
+    &__queue {
+      border-radius: 8px;
+      background-color: #fff;
+      padding: 30px 24px 32px 24px;
+      box-shadow: 0px 2px 8px rgba(46, 50, 56, 0.04), 0px 8px 24px rgba(46, 50, 56, 0.08)
+    }
+
+    &__options {
+      flex-basis: auto;
+      margin-right: 16px;
+      flex-grow: 10;
+
+      .option {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 16px 20px 0;
+        border: 1px solid #D1D5DB;
+        border-radius: 6px;
+        margin-bottom: 16px;
+
+        &__checkbox {
+          padding: 0 16px 0 17px;
+          text-align: center;
+        }
+
+        label {
+          display: flex;
+          flex-direction: column;
+          color: #111827;
+          flex-grow: 10;
+        }
+
+        &__name {
+          font-weight: bold;
+        }
+
+        &__arrow div {
+          background-image: url(../../public/icons/accordian-arrow.svg);
+          width: 10px;
+          height: 6px;
+          margin-left: 16px;
+        }
+      }
+
+      .hardware {
+        &__heading {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin: 68px 0 26px 0;
+
+          h4 {
+            font-size: 16px;
+            font-weight: normal;
+          }
+        }
+
+        &__grid {
+          display: grid;
+          grid-template-columns: auto auto auto auto auto;
+          row-gap: 16px;
+          // justify-content: space-evenly;
+          align-content: stretch;
+
+          .header {
+            font-size: 10px;
+            color: #7B818A;
+            text-transform: uppercase;
+            margin-bottom: -6px;
+          }
+
+          .header.provider {
+            color: #0180FF;
+          }
+
+          .line {
+            height: 1px;
+            background-color: #E0E0E0;
+            grid-column: 1 / span 5;
+            margin: 0 -24px 6px -24px;
+          }
+
+          div {
+            font-size: 14px;
+          }
+
+          .memory {
+            color: #7B818A;
+          }
+
+          .remove {
+
+            div {
+              background-image: url(../../public/icons/close.svg);
+              width: 14px;
+              height: 14px;
+              cursor: pointer;
+              margin-left: auto;
+            }
+          }
+        }
+      }
+    }
+
+    &__queue {
+      flex-basis: auto;
+      align-self: flex-start;
+      flex-grow: 3;
+
+      .heading {
+        margin-bottom: 24px;
+
+        h3 {
+          color: #7B818A;
+          font-size: 12px;
+          text-align: right;
+        }
+
+        p {
+          color: #4DB296;
+          font-size: 32px;
+          text-align: right;
+        }
+      }
+
+      .instanceType {
+        display: flex;
+        margin-bottom: 20px;
+
+        .desc {
+          flex-grow: 10;
+
+          h4 {
+            font-size: 16px;
+            color: #2E3238;
+          }
+
+          span {
+            font-size: 12px;
+            color: #91969C;
+          }
+        }
+
+        .count {
+          font-size: 16px;
+          color: #4DB296;
+        }
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}

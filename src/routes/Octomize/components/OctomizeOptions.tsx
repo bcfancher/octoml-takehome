@@ -2,20 +2,26 @@ import React from 'react'
 
 export const OctomizeOptions = () => (
   <>
-    <section>
-      <input id='benchmark' type='checkbox' />
+    <div className='option'>
+      <div className='option__checkbox'>
+        <input id='benchmark' type='checkbox' />
+      </div>
       <label htmlFor='benchmark'>
-        <span>Benchmark</span>
-        <span>This is some sub content to explain benchmarking</span>
+        <span className='option__name'>Benchmark</span>
+        <span className='option__desc'>This is some sub content to explain benchmarking</span>
       </label>
-    </section>
+      <div className='option__arrow'><div></div></div>
+    </div>
 
-    <section>
-      <input id='accelerate' type='checkbox' />
+    <div className='option'>
+      <div className='option__checkbox'>
+        <input id='accelerate' type='checkbox' />
+      </div>
       <label htmlFor='accelerate'>
-        <span>Accelerate</span>
-        <span>Could even open this accordian for a paragraph of text</span>
+        <span className='option__name'>Accelerate</span>
+        <span className='option__desc'>Could even open this accordian for a paragraph of text</span>
       </label>
-    </section>
+      <div className='option__arrow'><div></div></div>
+    </div>
   </>
 )
