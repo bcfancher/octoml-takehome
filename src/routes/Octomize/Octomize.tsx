@@ -1,12 +1,39 @@
 import React, { useState } from 'react'
 
-import { OctomizeTargets, OctomizeOptions, OctomizeQueue } from './components'
-import { OctomizeTarget } from './types'
+import {
+  AccelerateOptions,
+  BenchmarkOptions,
+  OctomizeTargets,
+  OctomizeQueue
+} from './components'
+import {
+  AccelerateConfig,
+  BenchmarkConfig,
+  OctomizeTarget,
+} from './types'
 import './Octomize.scss'
 
 export const Octomize = () => {
-  const initialValue: OctomizeTarget[] = []
-  const [targets, setTargets] = useState(initialValue)
+  const initialTargets: OctomizeTarget[] = []
+  const [targets, setTargets] = useState(initialTargets)
+
+  const initialBenchmarkConfig: BenchmarkConfig = { enabled: false }
+  const [benchmarkConfig, setBenchmarkConfig] = useState(
+    initialBenchmarkConfig
+  )
+
+  const initialAccelerateConfig: AccelerateConfig = { enabled: false }
+  const [accelerateConfig, setAccelerateConfig] = useState(
+    initialAccelerateConfig
+  )
+
+  const handleUpdateBenchmarkConfig = (config: BenchmarkConfig) => {
+    setBenchmarkConfig(config)
+  }
+
+  const handleUpdateAccelerateConfig = (config: AccelerateConfig) => {
+    setAccelerateConfig(config)
+  }
 
   const handleAddTarget = () => {
     setTargets((targets) => {
@@ -51,7 +78,16 @@ export const Octomize = () => {
         <div className='launch__options'>
           <h3 className='launch__heading'>Octomize</h3>
 
-          <OctomizeOptions />
+          <BenchmarkOptions
+            config={benchmarkConfig}
+            onUpdateConfig={handleUpdateBenchmarkConfig}
+          />
+
+          <AccelerateOptions
+            config={accelerateConfig}
+            onUpdateConfig={handleUpdateAccelerateConfig}
+          />
+
           <OctomizeTargets
             targets={targets}
             onAddTarget={handleAddTarget}
@@ -61,7 +97,11 @@ export const Octomize = () => {
         </div>
 
         <div className='launch__queue'>
-          <OctomizeQueue targets={targets} />
+          <OctomizeQueue
+            targets={targets}
+            benchmarkConfig={benchmarkConfig}
+            accelerateConfig={accelerateConfig}
+          />
         </div>
       </div>
     </div>

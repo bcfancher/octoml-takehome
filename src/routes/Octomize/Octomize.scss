@@ -50,24 +50,24 @@
       padding: 30px 24px 32px 24px;
 
       .option {
-        display: flex;
+        display: grid;
+        grid-template-columns: auto 86% auto;
+        // column-gap: 16px;
+        align-content: stretch;
         align-items: center;
-        justify-content: space-between;
-        padding: 20px 16px 20px 0;
+        padding: 20px 0;
         border: 1px solid #D1D5DB;
         border-radius: 6px;
         margin-bottom: 16px;
+        color: #111827;
 
         &__checkbox {
-          padding: 0 16px 0 17px;
           text-align: center;
         }
 
         label {
           display: flex;
           flex-direction: column;
-          color: #111827;
-          flex-grow: 10;
         }
 
         &__name {
@@ -78,7 +78,22 @@
           background-image: url(../../public/icons/accordian-arrow.svg);
           width: 10px;
           height: 6px;
-          margin-left: 16px;
+          right: 50%;
+          margin: 0 auto;
+        }
+
+        &__config {
+          padding-top: 24px;
+          display: grid;
+          grid-template-columns: 35% auto;
+          column-gap: 16px;
+          row-gap: 6px;
+          color: #555B62;
+          font-size: 14px;
+
+          input {
+            padding: 6px 0;
+          }
         }
       }
 
@@ -97,6 +112,7 @@
 
         &__grid {
           display: grid;
+          align-items: center;
           grid-template-columns: auto auto auto auto auto;
           row-gap: 16px;
           // justify-content: space-evenly;
@@ -125,8 +141,9 @@
             text-align: center;
           }
 
-          div {
+          > div {
             font-size: 14px;
+            padding-right: 6px;
           }
 
           .memory {

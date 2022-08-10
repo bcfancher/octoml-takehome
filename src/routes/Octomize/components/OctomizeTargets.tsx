@@ -13,6 +13,11 @@ type TargetProps = {
 export const OctomizeTargets = 
 ({ targets, onAddTarget, onUpdateTarget, onRemoveTarget }: TargetProps) => {
 
+  const selectedInstances = Object.fromEntries(
+    targets.filter(({instanceTypeId}) => !!instanceTypeId)
+      .map(({instanceTypeId}) => [instanceTypeId, true])
+  )
+
   return (
     <section className='hardware'>
       <div className='hardware__heading'>
@@ -37,6 +42,7 @@ export const OctomizeTargets =
             onUpdateTarget={onUpdateTarget}
             onRemoveTarget={onRemoveTarget}
             showRemoveButton={targets.length > 1}
+            selectedInstances={selectedInstances}
           />
         )) : (
           <div className='no-records'>

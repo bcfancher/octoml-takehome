@@ -1,4 +1,5 @@
 import React, { SyntheticEvent, useContext, useRef } from 'react'
+import Select from 'react-select'
 
 import { ProviderContext } from '../ProvidersContext'
 import { OctomizeTarget } from '../types'
@@ -9,6 +10,7 @@ type ItemProps = {
   onUpdateTarget: (updatedIdx: number, updatedTarget: OctomizeTarget) => void
   onRemoveTarget: (removedIdx: number,) => void
   showRemoveButton: boolean
+  selectedInstances: Record<number, boolean>
 }
 
 export const OctomizeTargetsItem = ({
@@ -17,18 +19,13 @@ export const OctomizeTargetsItem = ({
   onUpdateTarget,
   onRemoveTarget,
   showRemoveButton,
+  selectedInstances,
 }: ItemProps) => {
   const providers = useContext(ProviderContext)
-  const providerSelect = useRef<HTMLSelectElement>(null)
-  const instanceTypeSelect = useRef<HTMLSelectElement>(null)
 
-  const handleRemoveTarget = () => {
-    onRemoveTarget(idx)
-  }
-
-  const handleChangeProviderSelect = () => {
-    const updatedProviderId = providerSelect.current?.value 
-      ? parseInt(providerSelect.current?.value , 10)
+  const handleChangeProviderSelect = ({ value }: any) => {
+    const updatedProviderId = value 
+      ? parseInt(value , 10)
       : undefined
     onUpdateTarget(idx, {
       providerId: updatedProviderId,
@@ -36,10 +33,10 @@ export const OctomizeTargetsItem = ({
     })
   }
 
-  const handleChangeInstanceTypeSelect = () => {
+  const handleChangeInstanceTypeSelect = ({ value }: any) => {
     const { providerId } = target
-    const updatedInstanceTypeId = instanceTypeSelect.current?.value 
-      ? parseInt(instanceTypeSelect.current?.value , 10)
+    const updatedInstanceTypeId = value
+      ? parseInt(value , 10)
       : undefined
 
     onUpdateTarget(idx, {
@@ -48,13 +45,17 @@ export const OctomizeTargetsItem = ({
     })
   }
 
+  const handleRemoveTarget = () => {
+    onRemoveTarget(idx)
+  }
 
   const { providerId, instanceTypeId } = target
 
+  let provider
   let instanceTypes
   let instanceType
   if (providerId) {
-    const provider = providers.find(({ id }) => id === providerId)
+    provider = providers.find(({ id }) => id === providerId)
     instanceTypes = provider?.instanceTypes
 
     if (instanceTypeId) {
@@ -67,28 +68,44 @@ export const OctomizeTargetsItem = ({
   return (
     <>
       <div>
-        <select
-          ref={providerSelect}
-          value={providerId}
+        <Select
+          value={provider
+            ? { value: `${provider.id}`, label: provider.name }
+            : null}
           onChange={handleChangeProviderSelect}
-        >
-          <option value=''>Select Provider</option>
-          {providers.map(({id, name}) => (
-            <option key={id} value={id}>{name}</option>
-          ))}
-        </select>
+          options={[
+            {
+              value: '',
+              label: 'Select Provider'
+            },
+            ...providers.map(({id, name}) => ({
+              value: `${id}`,
+              label: name,
+            }))
+          ]}
+        />
       </div>
       <div>
-        <select
-          ref={instanceTypeSelect}
-          value={instanceTypeId}
+        <Select
+          value={instanceType
+            ? { value: `${instanceType.id}`, label: instanceType.name }
+            : null}
           onChange={handleChangeInstanceTypeSelect}
-        >
-          <option value=''>Select Instance</option>
-          {instanceTypes && instanceTypes.map(({id, name}) => (
-            <option key={id} value={id}>{name}</option>
-          ))}
-        </select>
+          options={[
+            {
+              value: '',
+              label: 'Select Instance'
+            },
+            ...(instanceTypes 
+              ? instanceTypes
+                .filter(({id}) => id === instanceTypeId || !selectedInstances[id])
+                .map(({id, name}) => ({
+                  value: `${id}`,
+                  label: name,
+                }))
+              : [])
+          ]}
+        />
       </div>
       <div>{vCPUs || 0}</div>
       <div>{memory || 0}</div>
