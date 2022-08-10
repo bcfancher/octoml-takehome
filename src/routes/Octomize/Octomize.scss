@@ -103,6 +103,7 @@
           .option__config {
             padding-top: 24px;
             max-height: 100vh;
+            overflow: visible;
             transition: all 500ms ease;
           }
         }
