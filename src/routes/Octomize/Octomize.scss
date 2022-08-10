@@ -83,16 +83,27 @@
         }
 
         &__config {
-          padding-top: 24px;
+          padding-top: 0;
           display: grid;
           grid-template-columns: 35% auto;
           column-gap: 16px;
           row-gap: 6px;
           color: #555B62;
           font-size: 14px;
+          max-height: 0px;
+          overflow: hidden;
+          transition: all 200ms ease;
 
           input {
             padding: 6px 0;
+          }
+        }
+
+        &.enabled {
+          .option__config {
+            padding-top: 24px;
+            max-height: 100vh;
+            transition: all 500ms ease;
           }
         }
       }
@@ -141,7 +152,7 @@
             text-align: center;
           }
 
-          > div {
+          >div {
             font-size: 14px;
             padding-right: 6px;
           }

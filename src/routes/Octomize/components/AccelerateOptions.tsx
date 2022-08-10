@@ -74,16 +74,16 @@ export const AccelerateOptions = ({
 
   return (
     <>
-      <div className='option'>
+      <div className={`option${enabled ? ' enabled' : ''}`}>
         <div className='option__checkbox'>
           <input
-            id='benchmark'
+            id='accelerate'
             type='checkbox'
             onChange={handleAccelerateCheckbox}
             checked={enabled}
           />
         </div>
-        <label htmlFor='benchmark'>
+        <label htmlFor='accelerate'>
           <span className='option__name'>Accelerate</span>
           <span className='option__desc'>Could even open this accordian for a paragraph of text</span>
         </label>

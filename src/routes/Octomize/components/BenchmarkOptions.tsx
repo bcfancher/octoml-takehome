@@ -90,7 +90,7 @@ export const BenchmarkOptions = ({
 
   return (
     <>
-      <div className='option'>
+      <div className={`option${enabled ? ' enabled' : ''}`}>
         <div className='option__checkbox'>
           <input
             id='benchmark'
